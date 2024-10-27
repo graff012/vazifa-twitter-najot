@@ -13,7 +13,6 @@ class PostWindow(QWidget):
 
         main_layout = QVBoxLayout()
 
-        # Scroll area for posts
         scroll_area = QScrollArea()
         scroll_area.setWidgetResizable(True)
         scroll_widget = QWidget()
@@ -38,11 +37,9 @@ class PostWindow(QWidget):
                 post_label.setAlignment(Qt.AlignVCenter | Qt.AlignLeft)
                 scroll_layout.addWidget(post_label)
 
-        # Add the scrollable widget to the scroll area
         scroll_area.setWidget(scroll_widget)
         main_layout.addWidget(scroll_area)
 
-        # Buttons
         write_post_btn = QPushButton("Upload")
         write_post_btn.clicked.connect(self.enter_write_posts)
 

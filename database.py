@@ -106,19 +106,15 @@ def load_data():
     try:
         cur = con.cursor()
 
-        # Clear tables in the correct order
         cur.execute("DELETE FROM posts;")
         cur.execute("DELETE FROM users;")
 
-        # Reset auto-increment for users table
         cur.execute("ALTER TABLE users AUTO_INCREMENT = 1;")
 
-        # Insert users
         cur.execute(users_insert_scripts)
         con.commit()
         print("Users inserted successfully.")
 
-        # Insert posts
         cur.execute(posts_insert_scripts)
         con.commit()
         print("Posts inserted successfully.")
